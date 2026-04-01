@@ -5,7 +5,7 @@ const path = require('path');
 const BASE = path.join(__dirname);
 
 http.createServer((req, res) => {
-  const file = req.url === '/' ? 'shopping-list.html' : req.url.slice(1);
+  const file = req.url === '/' ? 'index.html' : req.url.slice(1);
   fs.readFile(path.join(BASE, file), (err, data) => {
     if (err) { res.writeHead(404); res.end('Not found'); return; }
     res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
